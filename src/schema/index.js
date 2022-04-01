@@ -5,7 +5,8 @@ const typeDefs = gql`
     {
         id: Int !
         nombre: String !
-    }  
+    }
+
 
     type RespuestaPeliculas
     {
@@ -16,7 +17,7 @@ const typeDefs = gql`
     type Query
     {
         peliculas: RespuestaPeliculas !
+      
     }
 `
 module.exports = typeDefs
-
