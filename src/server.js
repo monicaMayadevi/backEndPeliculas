@@ -1,15 +1,20 @@
 const { ApolloServer } = require('apollo-server')
 
 const resolvers = require( './resolvers' )
+
 const typeDefs = require('./schema')
 
 
+const PeliculasDataSource = require ( './datasources/peliculas' )
 
 const server = new ApolloServer(
     {
         cors: true,
         context: () => ({}),
-        dataSources: () => ({}),
+        dataSources: () =>
+        ({
+          peliculas: new PeliculasDataSource()
+        }),
         resolvers,
         typeDefs
     })

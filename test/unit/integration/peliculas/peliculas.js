@@ -10,7 +10,7 @@ const PELICULAS = gql`
       peliculas
       {
         success,
-        peliculas { id, nombre }
+        peliculas { id, nombre, clasificacion, genero }
       }
   }
 `
@@ -27,8 +27,8 @@ const test = () => describe( 'peliculas', () =>
       expect( datos.success ).to.be.true
       expect( datos.peliculas ).to.deep.equal(
         [
-          { id: 1, nombre: 'Bambi'},
-          { id: 2, nombre: 'Pesadilla en la calle del infierno'}
+          { id: 1, nombre: 'Bambi', clasificacion: 'INFANTIL', genero: null},
+          { id: 2, nombre: 'Pesadilla en la calle del infierno', clasificacion: 'ADULTOS', genero: 'TERROR'}
         ]
       )
    })
