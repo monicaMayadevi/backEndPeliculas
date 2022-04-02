@@ -1,13 +1,6 @@
- const leerPeliculas = () => Promise.resolve(
-   [
-      { id: 1, nombre: 'Bambi'},
-      { id: 2, nombre: 'Pesadilla en la calle del infierno'}
-  ]
-)
-
-const listar = async (context) =>
+const listar = async ({ dataSources }) =>
 {
-  const peliculas = await leerPeliculas()
+  const peliculas = await dataSources.peliculas.listar()
 
   if( !peliculas )
     return { success: false }
